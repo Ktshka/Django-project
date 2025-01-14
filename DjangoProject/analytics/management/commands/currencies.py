@@ -3,7 +3,7 @@ from time import sleep
 import requests
 from django.core.management import BaseCommand
 from django.db import IntegrityError
-from analytics.models import Vacancy, Currency
+from analytics.models import Vacancy, Currencies
 
 
 def get_exchange_rates(date, salary_currency, max_retries=3, delay=5):
@@ -70,10 +70,10 @@ class Command(BaseCommand):
         # Сохраняем данные в базу данных
         for rate in exchange_rates:
             try:
-                Currency.objects.create(
+                Currencies.objects.create(
                     date=rate['date'],
-                    currency_code=rate['currency_code'],
-                    currency=rate['currency']
+                    cur_code=rate['currency_code'],
+                    currencies=rate['currency']
                 )
             except IntegrityError:
                 self.stdout.write(self.style.WARNING(f"Duplicate entry for {rate['currency_code']} on {rate['date']}"))
