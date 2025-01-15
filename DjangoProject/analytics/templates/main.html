@@ -5,52 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Специалист по информационной безопасности</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20;
-            padding: 0;
-            display: flex;
-        }
-        .header, .footer {
-            width: 100%;
-            padding: 20px;
-            text-align: center;
-        }
-        .header {
-            background-color: #9B61FF; /* Измененный цвет шапки */
-            position: fixed;
-            top: 0;
-        }
-        .footer {
-            background-color: #f4f4f4;
-            position: fixed;
-            bottom: 0;
-        }
-        .container {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            margin-top: 90px; /* Добавим высоту шапки */
-            margin-bottom: 60px; /* Добавим высоту подвала */
-        }
-        .menu {
-            width: 200px;
-            background-color: #e0e0e0;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        }
-        .menu a {
-            text-decoration: none;
-            color: #333;
-            display: block;
-            padding: 10px 0;
-        }
-        .content {
-            flex-grow: 1;
-            padding: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <div class="header">
@@ -58,17 +13,16 @@
     </div>
     <div class="container">
         <div class="menu">
-            <a href="index.html">Главная</a>
+            <a href="/">Главная</a>
             <a href="/statistics">Общая статистика</a>
             <a href="/demand">Востребованность</a>
             <a href="/geography">География</a>
             <a href="/skills">Навыки</a>
-            <a href="latest_vacancies.html">Последние вакансии</a>
         </div>
         <div class="content">
             <!-- Содержимое страницы -->
-             {% block content %}
-             {% endblock %}
+            {% block content %}
+            {% endblock %}
         </div>
     </div>
     <div class="footer">

@@ -33,4 +33,8 @@ def statistics(request):
     vacancies_for_cities = Vacancies_for_cities.objects.all()
     top_skills = Top_skills.objects.all()
 
-    return render(request, 'statistics.html', {'salaries_for_years' : salaries_for_years, 'vacancies_for_years' : vacancies_for_years, 'salaries_for_cities' : salaries_for_cities, 'vacancies_for_cities' : vacancies_for_cities, 'top_skills' : top_skills})
+    return render(request, 'statistics.html', {'salaries_for_years' : salaries_for_years, 'vacancies_for_years' : vacancies_for_years, 'salaries_for_cities' : salaries_for_cities, 'vacancies_for_cities' : vacancies_for_cities, 'top_skills' : top_skills}) 
+
+def main_informaition(request):
+
+    return render(request, 'index.html')
