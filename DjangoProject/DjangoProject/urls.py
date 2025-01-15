@@ -21,9 +21,9 @@ from analytics import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main, name = 'main'),
-    path('test/', views.Extra2, name='Extra2'),
     path('demand/', views.demand_full, name = 'demand'),
     path('geography/', views.geography_full, name = 'geography'),
-    path('skills', views.skills_full, name = 'skills'),
+    path('skills/', views.skills_full, name = 'skills'),
+    path('statistics/', views.statistics, name = 'statistics'),
     ]
 
