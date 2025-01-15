@@ -17,3 +17,10 @@ def demand_full(request):
 
     return render(request, 'demand.html', 
     {'salaries_for_years' : salaries_for_years, 'vacancies_for_years' : vacancies_for_years})
+
+def geography_full(request):
+    salaries_for_cities = Salaries_for_cities.objects.all()
+    vacancies_for_cities = Vacancies_for_cities.objects.all()
+
+    return render(request, 'geography.html', 
+    {'salaries_for_cities' : salaries_for_cities, 'vacancies_for_cities' : vacancies_for_cities})

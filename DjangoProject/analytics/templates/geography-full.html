@@ -1,0 +1,76 @@
+{% load static %}
+<head>
+    <title>География</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .table-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <h2 style="text-align: center;">География</h2>
+    
+    <div class="table-container">
+        <h3 style="text-align: center;">Уровень зарплат по городам</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Средняя зарплата</th>
+                    <th>Город</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in salaries_for_cities %}
+                    <tr>
+                        <td>{{ e.average_salary }}</td>
+                        <td>{{ e.city }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <img src="{% static 'salaries_for_cities.png' %}" alt="Уровень зарплат по городам">
+    </div>
+
+    <div class="table-container">
+        <h3 style="text-align: center;">Доля вакансий по городам</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Доля вакансий</th>
+                    <th>Город</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in vacancies_for_cities %}
+                    <tr>
+                        <td>{{ e.share_of_vacancies }}</td>
+                        <td>{{ e.city }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <img src="{% static 'vacancies_for_cities.png' %}" alt="Доля вакансий по городам">
+    </div>
+    {% endblock %}
+</body>
+</html>
