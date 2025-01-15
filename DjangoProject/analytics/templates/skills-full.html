@@ -1,0 +1,66 @@
+{% load static %}
+<head>
+    <title>Востребованность</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .table-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <h2 style="text-align: center;">Навыки</h2>
+    
+    <div class="table-container">
+        <h3 style="text-align: center;">ТОП-20 навыков</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Навыки</th>
+                    <th>Год</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in top_skills %}
+                    <tr>
+                        <td>{{ e.skills }}</td>
+                        <td>{{ e.year }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>  
+    <div>
+        <img src="{% static 'top_skills_2015.png' %}" alt="Топ навыки по годам"> 
+        <img src="{% static 'top_skills_2016.png' %}" alt="Топ навыки по годам"> 
+        <img src="{% static 'top_skills_2017.png' %}" alt="Топ навыки по годам"> 
+        <img src="{% static 'top_skills_2018.png' %}" alt="Топ навыки по годам"> 
+        <img src="{% static 'top_skills_2019.png' %}" alt="Топ навыки по годам"> 
+        <img src="{% static 'top_skills_2020.png' %}" alt="Топ навыки по годам"> 
+        <img src="{% static 'top_skills_2021.png' %}" alt="Топ навыки по годам"> 
+        <img src="{% static 'top_skills_2022.png' %}" alt="Топ навыки по годам"> 
+        <img src="{% static 'top_skills_2023.png' %}" alt="Топ навыки по годам"> 
+        <img src="{% static 'top_skills_2024.png' %}" alt="Топ навыки по годам"> 
+    </div> 
+{% endblock %}
+</body>
+</html>

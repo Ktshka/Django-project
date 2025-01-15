@@ -24,3 +24,8 @@ def geography_full(request):
 
     return render(request, 'geography.html', 
     {'salaries_for_cities' : salaries_for_cities, 'vacancies_for_cities' : vacancies_for_cities})
+
+def skills_full(request):
+    top_skills = Top_skills.objects.all()
+
+    return render(request, 'skills.html', {'top_skills' : top_skills})
