@@ -1,0 +1,76 @@
+{% load static %}
+<head>
+    <title>Востребованность</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .table-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <h2 style="text-align: center;">Востребованность</h2>
+    
+    <div class="table-container">
+        <h3 style="text-align: center;">Динамика уровня зарплат по годам</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Средняя зарплата</th>
+                    <th>Год</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in salaries_for_years %}
+                    <tr>
+                        <td>{{ e.salary }}</td>
+                        <td>{{ e.year }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <img src="{% static 'salaries_for_years.png' %}" alt="Уровень зарплат по годам">
+    </div>
+
+    <div class="table-container">
+        <h3 style="text-align: center;">Динамика количества вакансий по годам</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Количество вакансий</th>
+                    <th>Год</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in vacancies_for_years %}
+                    <tr>
+                        <td>{{ e.vacancies_amount }}</td>
+                        <td>{{ e.year }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <img src="{% static 'vacancies_for_years.png' %}" alt="Количество вакансий по годам">
+    </div>
+    {% endblock %}
+</body>
+</html>

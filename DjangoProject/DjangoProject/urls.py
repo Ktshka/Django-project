@@ -20,6 +20,8 @@ from analytics import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.main, name = 'Extra'),
+    path('', views.main, name = 'main'),
     path('test/', views.Extra2, name='Extra2'),
+    path('demand/', views.demand_full, name = 'demand')
+
 ]
